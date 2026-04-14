@@ -1,17 +1,17 @@
 # P6：参数扫描与性能优化——技术实施文档
 
-**文档版本：** v1.1  
+**文档版本：** v1.2  
 **文档状态：** 实施准备  
 **上位文档：**  
-- `BOC_TDMA_Phased_Implementation_Plan.md`（以下简称"总规划"）  
-- `BOC_TDMA_System_Planning.md`（以下简称"系统规划"）  
-- `P0_USRP_Link_Verification.md`（以下简称"P0 文档"）  
-- `P1_BOC_Subcarrier_Analysis.md`（以下简称"P1 文档"）  
-- `P2_Gold_Code_Spreading_Verification.md`（以下简称"P2 文档"）  
-- `P3_Single_Slot_BOC_Baseband.md`（以下简称"P3 文档"）  
-- `P4_TDMA_Frame_Generation.md`（以下简称"P4 文档"）  
-- `P5_USRP_Continuous_Loop_Transmission.md`（以下简称"P5 文档"）  
-- `BOC_TX.png`（系统结构图）
+- `../../planning/BOC_TDMA_Phased_Implementation_Plan.md`（以下简称"总规划"）  
+- `../../planning/BOC_TDMA_System_Planning.md`（以下简称"系统规划"）  
+- `./P0_USRP_Link_Verification.md`（以下简称"P0 文档"）  
+- `./P1_BOC_Subcarrier_Analysis.md`（以下简称"P1 文档"）  
+- `./P2_Gold_Code_Spreading_Verification.md`（以下简称"P2 文档"）  
+- `./P3_Single_Slot_BOC_Baseband.md`（以下简称"P3 文档"）  
+- `./P4_TDMA_Frame_Generation.md`（以下简称"P4 文档"）  
+- `./P5_USRP_Continuous_Loop_Transmission.md`（以下简称"P5 文档"）  
+- `../../assets/BOC_TX.png`（系统结构图）
 
 **撰写日期：** 2026 年 4 月  
 
@@ -802,7 +802,7 @@ P6 验收必须**同时满足**以下条件方可认为完成：
 
 P6 完成后应产出以下全部成果：
 
-+ **`P6_Parameter_Scan_Optimization.md`**（本文档）；
++ **`docs/phases/tx/P6_Parameter_Scan_Optimization.md`**（本文档）；
 + MATLAB 脚本：
   - `p6_scan_framework.m`（V1 统一框架）；
   - `p6_metrics.m`（统一指标计算函数）；
@@ -875,7 +875,8 @@ P6 完成后应产出以下全部成果：
 |---|---|---|
 | v1.0 | 初始 | 文档建立 |
 | v1.1 | 2026-04-13 | 按《BOC_TDMA_Doc_System_Review_Report.md》最优先修复项 #1/#3 与次优先项 #4：①§7.2 C-05 将 M 形副峰改写为"负副峰（valleys）"并明确副峰间距 $T_{sc}/2 \approx 33.3$ ns；②§6.1 B 类新增 B-04 "IQ 归一化策略"扫描项；③§15.1 新增 P6-L-09（IQ 归一化锁定）、P6-L-10（Gold 多项式与 P2 v1.1 同步）；④§4.1 将 USRP B210 由"继承自 P0"修订为"P6 假设 = B210，若 P0 最终选型不同需回溯"；⑤§6.1 C 类新增 C-04（多载荷互相关评估框架，v1.1 预留位），§15.2 POST-P6-01 补注 C-04 对接关系（次优先项 #5）。 |
+| v1.2 | 2026-04-14 | 头部“上位文档”与系统结构图路径接口迁移到 `docs/` 目录结构。 |
 
 ---
 
-*文档结束 | 版本 v1.1 | 本文档仅覆盖 P6 阶段，后续工作由各自独立文档覆盖*
+*文档结束 | 版本 v1.2 | 本文档仅覆盖 P6 阶段，后续工作由各自独立文档覆盖*

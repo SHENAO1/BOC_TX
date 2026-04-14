@@ -1,17 +1,17 @@
 # P5：USRP 连续循环发射验证——技术实施文档
 
-**文档版本：** v1.0  
+**文档版本：** v1.1  
 **文档状态：** 实施准备  
 **上位文档：**  
-- `BOC_TDMA_Phased_Implementation_Plan.md`（以下简称"总规划"）  
-- `BOC_TDMA_System_Planning.md`（以下简称"系统规划"）  
+- `../../planning/BOC_TDMA_Phased_Implementation_Plan.md`（以下简称"总规划"）  
+- `../../planning/BOC_TDMA_System_Planning.md`（以下简称"系统规划"）  
 
 **前序阶段文档：**  
-- `P0_USRP_Link_Verification.md`  
-- `P1_BOC_Subcarrier_Analysis.md`  
-- `P2_Gold_Code_Spreading_Verification.md`  
-- `P3_Single_Slot_BOC_Baseband.md`  
-- `P4_TDMA_Frame_Generation.md`  
+- `./P0_USRP_Link_Verification.md`  
+- `./P1_BOC_Subcarrier_Analysis.md`  
+- `./P2_Gold_Code_Spreading_Verification.md`  
+- `./P3_Single_Slot_BOC_Baseband.md`  
+- `./P4_TDMA_Frame_Generation.md`  
 
 **撰写日期：** 2026 年 4 月  
 
@@ -870,7 +870,7 @@ P5 验收必须**同时满足**以下条件方可进入 P6：
 
 ## 15. 本阶段输出成果清单
 
-+ **`P5_USRP_Continuous_Loop_Transmission.md`**（本文档）；
++ **`docs/phases/tx/P5_USRP_Continuous_Loop_Transmission.md`**（本文档）；
 + MATLAB 脚本：
   - `p5_boundary_analysis.m`（V1–V3 帧边界分析）；
   - `p5_multi_period_fft.m`（V4 多周期 FFT）；
@@ -928,3 +928,16 @@ P5 验收必须**同时满足**以下条件方可进入 P6：
 ---
 
 **阶段定位复述**：P5 是工程链路中**第一次要求 USRP 长时间连续循环发射的阶段**，是**第一次真正测试帧边界拼接的阶段**，也是 P6 之前**必须独立通过的长时稳定性验证闸门**。P5 的新增复杂性是"连续循环发射与稳定性验证"，而非信号体制或帧结构本身。P5 通过后，经 5 分钟验证的稳定发射基线将作为 P6 参数优化的唯一可信起点。
+
+---
+
+## 17. 版本记录
+
+| 版本 | 日期 | 变更说明 |
+|---|---|---|
+| v1.0 | 初始 | 文档建立 |
+| v1.1 | 2026-04-14 | 头部“上位文档/前序阶段文档”路径接口迁移到 `docs/` 目录结构；补充版本记录小节。 |
+
+---
+
+*文档结束 | 版本 v1.1 | 本文档仅覆盖 P5 阶段，后续工作由各自独立文档覆盖*
