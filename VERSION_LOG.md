@@ -14,6 +14,14 @@
 | 8 | docs/phases/tx/P5_USRP_Continuous_Loop_Transmission.md | v1.1 | 头部路径接口迁移到 `docs/` 结构；新增版本记录 |
 | 9 | docs/phases/tx/P6_Parameter_Scan_Optimization.md | v1.2 | 头部路径接口迁移到 `docs/` 结构 |
 | 10 | docs/phases/rx/P7_RX_Design_Input_and_Phased_Plan.md | v1.2 | 头部路径接口迁移到 `docs/` 结构 |
+| 11 | docs/testing/README.md | v1.1 | 增加与 `artifacts/testing/` 的分工说明、归档流程与测试产物入口 |
+| 12 | docs/testing/templates/ | v1.1 | 阶段测试清单模板与单次执行记录模板；记录模板增加“证据目录路径”字段 |
+| 13 | docs/testing/tx/P0_Test_Checklist.md | v1.0 | P0-A/P0-B 详版测试清单 |
+| 14 | docs/testing/tx/P1-P6 | v1.0 | 发端阶段测试清单骨架 |
+| 15 | docs/testing/rx/P7_Input_Readiness_Checklist.md | v1.0 | 接收端输入就绪清单 |
+| 16 | docs/testing/rx/PR0-PR7 | v1.0 | 接收端阶段测试清单骨架 |
+| 17 | artifacts/testing/README.md | v1.0 | 测试结果归档目录说明、批次命名规则与产物目录结构 |
+| 18 | artifacts/testing/tx+rx | v1.0 | 各阶段测试结果骨架目录 |
 | — | docs/planning/BOC_TDMA_Doc_System_Review_Report.md | — | 审查报告（参考基准，不计版本） |
 
 ## 2026-04-14 本轮整理要点
@@ -21,3 +29,5 @@
 - 新增 `README.md` 作为项目入口
 - 新增 `matlab/check_params.m`，将系统规划 §6 阶段 A 正式落为 `P0-A：参数级自洽检查`
 - 所有关键头部路径接口、提示词模板路径接口、版本台账路径接口同步更新
+- 新增 `docs/testing/` 目录，建立 TX/RX 阶段测试清单体系与执行记录模板
+- 新增 `artifacts/testing/` 目录，建立正式测试结果归档骨架、批次命名规则与证据目录约定

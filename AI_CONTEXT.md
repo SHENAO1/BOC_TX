@@ -20,6 +20,8 @@
 - docs/planning/BOC_TDMA_Phased_Implementation_Plan.md   分阶段总规划
 - docs/phases/tx/P0 ~ P6                                 发端阶段技术实施文档
 - docs/phases/rx/P7_RX_Design_Input_and_Phased_Plan.md   接收端母文档
+- docs/testing/README.md                                 阶段测试清单入口
+- artifacts/testing/README.md                            阶段测试结果归档入口
 - docs/planning/BOC_TDMA_Doc_System_Review_Report.md     审查报告（参考基准）
 
 ## 工作原则
@@ -32,6 +34,8 @@
 
 ## 当前推进状态
 - 已完成：文档体系已重组到 `docs/` 目录；`README.md` 项目入口已建立；`matlab/check_params.m` 已作为 `P0-A` 热身脚本落盘
+- 已完成：`docs/testing/` 测试清单目录已正式建立，后续各阶段测试与验收将统一在该目录维护
+- 已完成：`artifacts/testing/` 测试结果归档目录已建立，后续截图、日志、MATLAB 输出和原始数据统一按阶段归档
 - 进行中：P0-A 参数级自洽检查待运行确认；P0-B 硬件链路联调待 USRP 到位
 - 阻塞项：USRP 型号尚未到位（P0 §16.2 OPEN-01；P6 §4.1 当前以 B210 为假设）
 - 待决策：多载荷 Gold 码分配方案（POST-P6-01 / P2 OPEN-P2-03）

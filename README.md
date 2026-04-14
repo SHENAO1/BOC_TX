@@ -10,6 +10,7 @@
 - 顶层系统规划：[docs/planning/BOC_TDMA_System_Planning.md](docs/planning/BOC_TDMA_System_Planning.md)
 - 分阶段总规划：[docs/planning/BOC_TDMA_Phased_Implementation_Plan.md](docs/planning/BOC_TDMA_Phased_Implementation_Plan.md)
 - 审查报告基线：[docs/planning/BOC_TDMA_Doc_System_Review_Report.md](docs/planning/BOC_TDMA_Doc_System_Review_Report.md)
+- 测试清单入口：[docs/testing/README.md](docs/testing/README.md)
 
 ## 当前建议开工顺序
 
@@ -22,6 +23,7 @@
 - `docs/planning/`：顶层规划、总规划、审查报告
 - `docs/phases/tx/`：P0–P6 发端阶段文档
 - `docs/phases/rx/`：P7 接收端母文档
+- `docs/testing/`：阶段测试清单、执行记录模板
 - `docs/assets/`：图资源
 - `matlab/`：MATLAB 脚本入口
 
