@@ -1,6 +1,6 @@
 # 阶段测试清单目录
 
-**文档版本：** v1.1  
+**文档版本：** v1.2
 **文档状态：** 生效中  
 **关联文档：**
 - `../planning/BOC_TDMA_Phased_Implementation_Plan.md`
@@ -76,7 +76,7 @@
 ## 6. TX 清单索引
 
 - [P0 详版测试清单](./tx/P0_Test_Checklist.md)
-- [P1 测试清单骨架](./tx/P1_Test_Checklist.md)
+- [P1 详版测试清单](./tx/P1_Test_Checklist.md)
 - [P2 测试清单骨架](./tx/P2_Test_Checklist.md)
 - [P3 测试清单骨架](./tx/P3_Test_Checklist.md)
 - [P4 测试清单骨架](./tx/P4_Test_Checklist.md)
@@ -116,5 +116,6 @@
 
 | 版本 | 日期 | 变更说明 |
 |---|---|---|
+| v1.2 | 2026-04-14 | 将 `P1` 索引从骨架升级为详版测试清单入口，明确其已可作为当前执行入口使用。 |
 | v1.1 | 2026-04-14 | 增加与 `artifacts/testing/` 的分工说明、测试产物目录链接和单次执行归档流程。 |
 | v1.0 | 2026-04-14 | 首次建立 `docs/testing/` 目录总索引，统一状态值、字段约定、模板入口与 TX/RX 清单导航。 |

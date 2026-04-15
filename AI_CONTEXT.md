@@ -2,7 +2,7 @@
 
 ## 项目一句话
 基于 USRP + MATLAB 的 TDMA + DSSS + BOC(15,3) 无线发端信号源开发，
-按 P0–P7 分阶段推进，当前处于 **P0-A 参数级自洽检查已落盘、P0-B 硬件联调待启动** 阶段。
+按 P0–P7 分阶段推进，当前处于 **P0-A 参数级自洽检查已通过、P0-B 硬件联调待启动、P1 可软件先行** 阶段。
 
 ## 关键参数（已锁定，不得修改）
 - 采样率 fs = 36 MSPS
@@ -22,6 +22,7 @@
 - docs/phases/rx/P7_RX_Design_Input_and_Phased_Plan.md   接收端母文档
 - docs/testing/README.md                                 阶段测试清单入口
 - artifacts/testing/README.md                            阶段测试结果归档入口
+- docs/handoff/HANDOFF_CURRENT.md                        当前会话交接入口
 - docs/planning/BOC_TDMA_Doc_System_Review_Report.md     审查报告（参考基准）
 
 ## 工作原则
@@ -32,11 +33,21 @@
 5. 命名规范：MATLAB 正式脚本 `pX_功能名.m`，数据文件 `pX_描述.mat`，图像 `pX_fNN_描述.png`；系统规划 §6 阶段 A 指定的预热脚本 `matlab/check_params.m` 为保留例外
 6. Git 提交消息统一使用中文；若提交中包含验证或测试信息，应在提交说明正文中显式写明“已执行验证”和“未执行/无法执行的验证”
 
+## 会话边界与交接规则
+1. 当用户明确表示“当前阶段任务完成”“这一阶段结束了”或“先收口”时，默认触发会话收口流程
+2. 当 AI 从测试清单、执行记录或结果文档中读到“允许进入下一阶段”“阶段完成”“PASS / 通过”等明确信号时，也默认触发会话收口流程
+3. 当 AI 自己完成了当前请求，并判断下一步已切换到新的阶段、子阶段或任务簇时，默认先给出收口建议，再继续等待用户决定是否在当前会话内往下做
+4. 会话收口流程固定包含：本轮完成汇报、关键证据路径、未完成/阻塞项、下一步唯一推荐动作、建议结束当前会话并新开会话
+5. 每次会话结束前，AI 应更新 `docs/handoff/HANDOFF_CURRENT.md`；若属于阶段/子阶段里程碑、重大硬件决策或路线切换，还应在 `docs/handoff/archive/` 追加快照
+6. 新会话默认先读 `AI_CONTEXT.md` 与 `docs/handoff/HANDOFF_CURRENT.md`；若交接单列出了关联文档、测试记录或结果目录，也应一并读取
+7. `AI_CONTEXT.md` 只保留长期稳定约束，不承载逐轮会话的细碎进展；逐轮状态以 `docs/handoff/HANDOFF_CURRENT.md` 为准
+
 ## 当前推进状态
 - 已完成：文档体系已重组到 `docs/` 目录；`README.md` 项目入口已建立；`matlab/check_params.m` 已作为 `P0-A` 热身脚本落盘
 - 已完成：`docs/testing/` 测试清单目录已正式建立，后续各阶段测试与验收将统一在该目录维护
 - 已完成：`artifacts/testing/` 测试结果归档目录已建立，后续截图、日志、MATLAB 输出和原始数据统一按阶段归档
-- 进行中：P0-A 参数级自洽检查待运行确认；P0-B 硬件链路联调待 USRP 到位
+- 已完成：`P0-A` 参数级自洽检查已通过；执行记录与证据已存入 `artifacts/testing/tx/P0/2026-04-14_run01_p0a_check_params/`
+- 进行中：`P0-B` 硬件链路联调待 USRP 到位；若当前不碰硬件，软件路线优先进入 `P1`
 - 阻塞项：USRP 型号尚未到位（P0 §16.2 OPEN-01；P6 §4.1 当前以 B210 为假设）
 - 待决策：多载荷 Gold 码分配方案（POST-P6-01 / P2 OPEN-P2-03）
 

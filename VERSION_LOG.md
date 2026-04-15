@@ -7,21 +7,26 @@
 | 1 | docs/planning/BOC_TDMA_System_Planning.md | v1.2 | §6 阶段 A 扩写为 P0-A 可执行清单；`check_params.m` 输出项与 `matlab/` 目录对齐 |
 | 2 | docs/planning/BOC_TDMA_Phased_Implementation_Plan.md | v1.1 | P0 细化为“P0-A 参数自检 + P0-B 硬件链路”；新增版本记录 |
 | 3 | docs/phases/tx/P0_USRP_Link_Verification.md | v1.1 | 新增 P0-A 热身关卡定位；头部路径接口更新；新增版本记录 |
-| 4 | docs/phases/tx/P1_BOC_Subcarrier_Analysis.md | v1.2 | 头部路径接口迁移到 `docs/` 结构 |
+| 4 | docs/phases/tx/P1_BOC_Subcarrier_Analysis.md | v1.3 | 明确 `P0-A` 通过即可启动 P1 软件路线，`P0-B` 仅约束 §10 可选硬件验证；补全 §17 / §18 目录入口 |
 | 5 | docs/phases/tx/P2_Gold_Code_Spreading_Verification.md | v1.2 | 头部路径接口迁移到 `docs/` 结构 |
 | 6 | docs/phases/tx/P3_Single_Slot_BOC_Baseband.md | v1.1 | 内容未改，本轮仅迁移到 `docs/phases/tx/` |
 | 7 | docs/phases/tx/P4_TDMA_Frame_Generation.md | v1.0 | 内容未改，本轮仅迁移到 `docs/phases/tx/` |
 | 8 | docs/phases/tx/P5_USRP_Continuous_Loop_Transmission.md | v1.1 | 头部路径接口迁移到 `docs/` 结构；新增版本记录 |
 | 9 | docs/phases/tx/P6_Parameter_Scan_Optimization.md | v1.2 | 头部路径接口迁移到 `docs/` 结构 |
 | 10 | docs/phases/rx/P7_RX_Design_Input_and_Phased_Plan.md | v1.2 | 头部路径接口迁移到 `docs/` 结构 |
-| 11 | docs/testing/README.md | v1.1 | 增加与 `artifacts/testing/` 的分工说明、归档流程与测试产物入口 |
+| 11 | docs/testing/README.md | v1.2 | 增加与 `artifacts/testing/` 的分工说明，并将 `P1` 索引升级为详版测试清单入口 |
 | 12 | docs/testing/templates/ | v1.1 | 阶段测试清单模板与单次执行记录模板；记录模板增加“证据目录路径”字段 |
 | 13 | docs/testing/tx/P0_Test_Checklist.md | v1.0 | P0-A/P0-B 详版测试清单 |
-| 14 | docs/testing/tx/P1-P6 | v1.0 | 发端阶段测试清单骨架 |
+| 14 | docs/testing/tx/P1-P6 | P1 v1.1 / P2-P6 v1.0 | `P1` 升级为软件优先详版测试清单，`P2-P6` 仍为骨架 |
 | 15 | docs/testing/rx/P7_Input_Readiness_Checklist.md | v1.0 | 接收端输入就绪清单 |
 | 16 | docs/testing/rx/PR0-PR7 | v1.0 | 接收端阶段测试清单骨架 |
 | 17 | artifacts/testing/README.md | v1.0 | 测试结果归档目录说明、批次命名规则与产物目录结构 |
 | 18 | artifacts/testing/tx+rx | v1.0 | 各阶段测试结果骨架目录 |
+| 19 | DataSheet/analysis/README.md | v1.1 | 新增 X300/X310 手册分析文档索引 |
+| 20 | DataSheet/analysis/usrp_x300_x310_summary_zh.md | v1.0 | X300/X310 手册摘要与当前项目 B210 -> X310 迁移分析 |
+| 21 | docs/handoff/HANDOFF_CURRENT.md | v1.1 | 当前会话交接单更新为“P1 软件路线文档已细化、建议先提交再开新会话执行 P1-A” |
+| 22 | docs/handoff/archive/ | v1.0 | 阶段/子阶段里程碑交接快照归档 |
+| 23 | docs/handoff/templates/ | v1.0 | 当前交接单与里程碑快照模板 |
 | — | docs/planning/BOC_TDMA_Doc_System_Review_Report.md | — | 审查报告（参考基准，不计版本） |
 
 ## 2026-04-14 本轮整理要点
@@ -31,3 +36,6 @@
 - 所有关键头部路径接口、提示词模板路径接口、版本台账路径接口同步更新
 - 新增 `docs/testing/` 目录，建立 TX/RX 阶段测试清单体系与执行记录模板
 - 新增 `artifacts/testing/` 目录，建立正式测试结果归档骨架、批次命名规则与证据目录约定
+- 新增 `DataSheet/analysis/usrp_x300_x310_summary_zh.md`，结合 X300/X310 规格页与当前项目阶段，分析“先用 B210，再迁移到 X310”的可行性与迁移边界
+- 新增 `docs/handoff/` 目录与会话边界交接机制：以 `HANDOFF_CURRENT.md` 承接最新状态，以 `archive/` 归档里程碑，以模板和提示词支持“阶段完成后默认收口并建议新开会话”
+- 将 `docs/testing/tx/P1_Test_Checklist.md` 从骨架升级为详版测试清单，并把 `docs/phases/tx/P1_BOC_Subcarrier_Analysis.md` 调整为“`P0-A` 通过即可先走 P1 软件路线”的当前执行口径

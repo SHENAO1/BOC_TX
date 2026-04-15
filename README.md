@@ -11,12 +11,13 @@
 - 分阶段总规划：[docs/planning/BOC_TDMA_Phased_Implementation_Plan.md](docs/planning/BOC_TDMA_Phased_Implementation_Plan.md)
 - 审查报告基线：[docs/planning/BOC_TDMA_Doc_System_Review_Report.md](docs/planning/BOC_TDMA_Doc_System_Review_Report.md)
 - 测试清单入口：[docs/testing/README.md](docs/testing/README.md)
+- 会话交接入口：[docs/handoff/HANDOFF_CURRENT.md](docs/handoff/HANDOFF_CURRENT.md)
 
 ## 当前建议开工顺序
 
-1. 先读 [AI_CONTEXT.md](AI_CONTEXT.md) 与 [docs/planning/BOC_TDMA_System_Planning.md](docs/planning/BOC_TDMA_System_Planning.md)。
-2. 运行 [matlab/check_params.m](matlab/check_params.m) 完成 `P0-A：参数级自洽检查`。
-3. 再进入 [docs/phases/tx/P0_USRP_Link_Verification.md](docs/phases/tx/P0_USRP_Link_Verification.md) 的硬件链路验证。
+1. 先读 [AI_CONTEXT.md](AI_CONTEXT.md) 与 [docs/handoff/HANDOFF_CURRENT.md](docs/handoff/HANDOFF_CURRENT.md)。
+2. 如果当前**不碰硬件**，优先进入 [docs/testing/tx/P1_Test_Checklist.md](docs/testing/tx/P1_Test_Checklist.md) 和 [docs/phases/tx/P1_BOC_Subcarrier_Analysis.md](docs/phases/tx/P1_BOC_Subcarrier_Analysis.md)。
+3. 如果当前**硬件已到位**，进入 [docs/phases/tx/P0_USRP_Link_Verification.md](docs/phases/tx/P0_USRP_Link_Verification.md) 的 `P0-B` 硬件链路验证。
 
 ## 目录结构
 
@@ -24,6 +25,7 @@
 - `docs/phases/tx/`：P0–P6 发端阶段文档
 - `docs/phases/rx/`：P7 接收端母文档
 - `docs/testing/`：阶段测试清单、执行记录模板
+- `docs/handoff/`：当前交接单、里程碑归档、交接模板
 - `docs/assets/`：图资源
 - `matlab/`：MATLAB 脚本入口
 
