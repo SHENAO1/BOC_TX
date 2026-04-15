@@ -1,0 +1,25 @@
+[INFO] [UHD] linux; GNU C++ version 13.2.0; Boost_108300; UHD_4.6.0.0+ds1-5.1ubuntu0.24.04.1
+[INFO] [B200] Detected Device: B210
+[INFO] [B200] Operating over USB 3.
+[INFO] [B200] Initialize CODEC control...
+[INFO] [B200] Initialize Radio control...
+[INFO] [B200] Performing register loopback test... 
+[INFO] [B200] Register loopback test passed
+[INFO] [B200] Performing register loopback test... 
+[INFO] [B200] Register loopback test passed
+[INFO] [B200] Setting master clock rate selection to 'automatic'.
+[INFO] [B200] Asking for clock rate 16.000000 MHz... 
+[INFO] [B200] Actually got clock rate 16.000000 MHz.
+[INFO] [B200] Asking for clock rate 36.000000 MHz... 
+[INFO] [B200] Actually got clock rate 36.000000 MHz.
+open_ok_try=1
+tx_info_ch0= {'mboard_id': 'B210', 'mboard_name': 'MyB210', 'mboard_serial': '193982', 'module_serial': '193982', 'tx_antenna': 'TX/RX', 'tx_id': 'Unknown (0xffff)', 'tx_ref_power_key': 'b2xx_pwr_tx_tx+rx', 'tx_ref_power_serial': '193982#A', 'tx_serial': '', 'tx_subdev_name': 'FE-TX2', 'tx_subdev_spec': 'A:A A:B'}
+rx_info_ch0= {'mboard_id': 'B210', 'mboard_name': 'MyB210', 'mboard_serial': '193982', 'module_serial': '193982', 'rx_antenna': 'RX2', 'rx_id': 'Unknown (0xffff)', 'rx_ref_power_key': 'b2xx_pwr_rx_rx2', 'rx_ref_power_serial': '193982#A', 'rx_serial': '', 'rx_subdev_name': 'FE-RX2', 'rx_subdev_spec': 'A:A A:B'}
+master_clock_rate_before= 16000000.0
+clock_source= internal
+tx_antenna= TX/RX
+actual_tx_rate= 36000000.0
+master_clock_rate_after= 36000000.0
+actual_tx_freq= 914999999.9990675
+actual_tx_gain= 10.0
+lo_locked= True

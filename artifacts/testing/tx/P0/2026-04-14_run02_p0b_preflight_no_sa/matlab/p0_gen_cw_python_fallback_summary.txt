@@ -1,0 +1,15 @@
+P0-B CW Python fallback summary
+MATLAB command not available on this host; generated equivalent sc16 IQ via Python.
+fs_hz=36000000
+f_tone_hz=1000000
+amplitude=0.30
+samples_per_cycle=36
+num_cycles=1000
+N_samples=36000
+file_size_bytes=144000
+max_i_sc16=9830
+max_q_sc16=9830
+mean_real=-0.000000000000
+mean_imag=0.000000000000
+dominant_fft_bin_hz=1000000 (theoretical exact, integer-cycle construction)
+format=sc16 little-endian interleaved I,Q

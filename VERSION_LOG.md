@@ -24,9 +24,11 @@
 | 18 | artifacts/testing/tx+rx | v1.0 | 各阶段测试结果骨架目录 |
 | 19 | DataSheet/analysis/README.md | v1.1 | 新增 X300/X310 手册分析文档索引 |
 | 20 | DataSheet/analysis/usrp_x300_x310_summary_zh.md | v1.0 | X300/X310 手册摘要与当前项目 B210 -> X310 迁移分析 |
-| 21 | docs/handoff/HANDOFF_CURRENT.md | v1.1 | 当前会话交接单更新为“P1 软件路线文档已细化、建议先提交再开新会话执行 P1-A” |
+| 21 | docs/handoff/HANDOFF_CURRENT.md | v1.2 | 当前会话交接单更新为“P0-B 预检已完成、待频谱仪接入继续正式验证”的当前状态 |
 | 22 | docs/handoff/archive/ | v1.0 | 阶段/子阶段里程碑交接快照归档 |
 | 23 | docs/handoff/templates/ | v1.0 | 当前交接单与里程碑快照模板 |
+| 24 | matlab/p0_gen_cw.m | v1.0 | P0-B 1 MHz 复单音 CW 生成与 sc16 导出脚本 |
+| 25 | artifacts/testing/tx/P0/2026-04-14_run02_p0b_preflight_no_sa | v1.0 | P0-B 无频谱仪预检记录：B210 主路径锁定、36 MSPS 配置成功、CW IQ 已导出 |
 | — | docs/planning/BOC_TDMA_Doc_System_Review_Report.md | — | 审查报告（参考基准，不计版本） |
 
 ## 2026-04-14 本轮整理要点
@@ -39,3 +41,4 @@
 - 新增 `DataSheet/analysis/usrp_x300_x310_summary_zh.md`，结合 X300/X310 规格页与当前项目阶段，分析“先用 B210，再迁移到 X310”的可行性与迁移边界
 - 新增 `docs/handoff/` 目录与会话边界交接机制：以 `HANDOFF_CURRENT.md` 承接最新状态，以 `archive/` 归档里程碑，以模板和提示词支持“阶段完成后默认收口并建议新开会话”
 - 将 `docs/testing/tx/P1_Test_Checklist.md` 从骨架升级为详版测试清单，并把 `docs/phases/tx/P1_BOC_Subcarrier_Analysis.md` 调整为“`P0-A` 通过即可先走 P1 软件路线”的当前执行口径
+- 新增 `matlab/p0_gen_cw.m`，并完成 `P0-B` 的无频谱仪预检：主路径 B210 `serial=193982` 已完成 `36 MSPS` 配置和 `1 MHz` 复单音 IQ 导出，但频谱仪必需验收项仍待继续
