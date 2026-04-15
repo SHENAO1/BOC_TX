@@ -1,0 +1,36 @@
+[INFO] [UHD] linux; GNU C++ version 13.2.0; Boost_108300; UHD_4.6.0.0+ds1-5.1ubuntu0.24.04.1
+[INFO] [B200] Detected Device: B210
+[INFO] [B200] Operating over USB 3.
+[INFO] [B200] Initialize CODEC control...
+[INFO] [B200] Initialize Radio control...
+[INFO] [B200] Performing register loopback test... 
+[INFO] [B200] Register loopback test passed
+[INFO] [B200] Performing register loopback test... 
+[INFO] [B200] Register loopback test passed
+[INFO] [B200] Setting master clock rate selection to 'automatic'.
+[INFO] [B200] Asking for clock rate 16.000000 MHz... 
+[INFO] [B200] Actually got clock rate 16.000000 MHz.
+[INFO] [B200] Asking for clock rate 36.000000 MHz... 
+[INFO] [B200] Actually got clock rate 36.000000 MHz.
+Note: failed to enable realtime scheduling, continuing
+[UHD-SIGGEN] Using sampling rate: 36000000.0
+[UHD-SIGGEN] [UHD-SIGGEN] Channel 0: Using antenna TX/RX.
+[UHD-SIGGEN] Setting gain to 10.00 dB.
+[UHD-SIGGEN] UHD Signal Generator
+[UHD-SIGGEN] UHD Version: 4.6.0.0+ds1-5.1ubuntu0.24.04.1
+[UHD-SIGGEN] Using USRP configuration:
+[UHD-SIGGEN]   Motherboard: B210 (193982)
+[UHD-SIGGEN]   Daughterboard: FE-TX2
+[UHD-SIGGEN]   Subdev: A:A A:B
+[UHD-SIGGEN]   Antenna: TX/RX
+
+[UHD-SIGGEN] Setting sampling rate to: 36.0 Msps
+[UHD-SIGGEN] Setting gain to 10.00 dB.
+[UHD-SIGGEN] Tuning all channels to 915.0 MHz.
+[UHD-SIGGEN] First channel has freq: 914.9999999990675 MHz.
+[UHD-SIGGEN] Selecting waveform...
+[UHD-SIGGEN] Set baseband modulation to: Complex Sinusoid
+[UHD-SIGGEN] Modulation frequency: 1.0MHz
+[UHD-SIGGEN] Initial phase: 0
+[UHD-SIGGEN] TX amplitude: 0.3
+[UHD-SIGGEN] Press Enter to quit:

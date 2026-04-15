@@ -1,6 +1,6 @@
 # 文档版本台账
 
-最后更新：2026-04-14
+最后更新：2026-04-15
 
 | # | 文档 | 当前版本 | 备注 |
 |---|---|---|---|
@@ -24,11 +24,14 @@
 | 18 | artifacts/testing/tx+rx | v1.0 | 各阶段测试结果骨架目录 |
 | 19 | DataSheet/analysis/README.md | v1.1 | 新增 X300/X310 手册分析文档索引 |
 | 20 | DataSheet/analysis/usrp_x300_x310_summary_zh.md | v1.0 | X300/X310 手册摘要与当前项目 B210 -> X310 迁移分析 |
-| 21 | docs/handoff/HANDOFF_CURRENT.md | v1.2 | 当前会话交接单更新为“P0-B 预检已完成、待频谱仪接入继续正式验证”的当前状态 |
+| 21 | docs/handoff/HANDOFF_CURRENT.md | v1.4 | 当前会话交接单更新为“P0-B 已通过、允许进入 P1 / P2”的当前状态，并将下一步唯一推荐动作切换为 `P1-A` |
 | 22 | docs/handoff/archive/ | v1.0 | 阶段/子阶段里程碑交接快照归档 |
 | 23 | docs/handoff/templates/ | v1.0 | 当前交接单与里程碑快照模板 |
 | 24 | matlab/p0_gen_cw.m | v1.0 | P0-B 1 MHz 复单音 CW 生成与 sc16 导出脚本 |
 | 25 | artifacts/testing/tx/P0/2026-04-14_run02_p0b_preflight_no_sa | v1.0 | P0-B 无频谱仪预检记录：B210 主路径锁定、36 MSPS 配置成功、CW IQ 已导出 |
+| 26 | AI_CONTEXT.md | v1.2 | 当前阶段更新为“P0 已完成、P1 / P2 可启动”，并保留“命令指导必须附带具体命令”的长期交互约束 |
+| 27 | artifacts/testing/tx/P0/2026-04-14_run03_p0b_sa_validation | v1.0 | P0-B 正式频谱仪验收记录：`916 MHz` 主峰、DC / 镜像检查通过，`retry03` 的 2 分钟稳定性无 `underflow`，允许进入 `P1 / P2` |
+| 28 | docs/handoff/archive/2026-04-15_p0b_pass_ready_for_p1.md | v1.0 | P0-B 通过后的里程碑交接快照，指向 `P1-A` 新会话入口 |
 | — | docs/planning/BOC_TDMA_Doc_System_Review_Report.md | — | 审查报告（参考基准，不计版本） |
 
 ## 2026-04-14 本轮整理要点
@@ -42,3 +45,5 @@
 - 新增 `docs/handoff/` 目录与会话边界交接机制：以 `HANDOFF_CURRENT.md` 承接最新状态，以 `archive/` 归档里程碑，以模板和提示词支持“阶段完成后默认收口并建议新开会话”
 - 将 `docs/testing/tx/P1_Test_Checklist.md` 从骨架升级为详版测试清单，并把 `docs/phases/tx/P1_BOC_Subcarrier_Analysis.md` 调整为“`P0-A` 通过即可先走 P1 软件路线”的当前执行口径
 - 新增 `matlab/p0_gen_cw.m`，并完成 `P0-B` 的无频谱仪预检：主路径 B210 `serial=193982` 已完成 `36 MSPS` 配置和 `1 MHz` 复单音 IQ 导出，但频谱仪必需验收项仍待继续
+- 将“凡是指导用户执行终端 / 命令行操作时，必须同步给出具体命令”写入 `AI_CONTEXT.md` 与 `docs/handoff/HANDOFF_CURRENT.md`，作为后续会话的固定执行约束
+- 完成 `P0-B` 正式频谱仪验收：`run03` 下已归档主峰、DC / 镜像和 2 分钟稳定性证据，并将当前项目状态切换为“P0 已完成、允许进入 P1 / P2”
