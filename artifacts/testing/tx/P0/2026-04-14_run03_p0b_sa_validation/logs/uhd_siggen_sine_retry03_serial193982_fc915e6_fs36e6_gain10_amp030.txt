@@ -36,3 +36,5 @@ Note: failed to enable realtime scheduling, continuing
 [UHD-SIGGEN] Press Enter to quit:
 Uusrp_sink :error: In the last 306334 ms, 1 underflows occurred.
 UUusrp_sink :error: In the last 216802 ms, 1 underflows occurred.
+Uusrp_sink :error: In the last 97064 ms, 2 underflows occurred.
+U

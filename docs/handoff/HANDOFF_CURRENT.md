@@ -1,6 +1,6 @@
 # 当前会话交接单
 
-**文档版本：** v1.4
+**文档版本：** v1.5
 **文档状态：** 最新有效
 **最近更新：** 2026-04-15
 **适用规则：** `AI_CONTEXT.md` §会话边界与交接规则
@@ -9,9 +9,9 @@
 
 ## 1. 当前阶段 / 子阶段
 
-- 当前大阶段：`P0 已完成`
-- 当前子阶段状态：`P0-A / P0-B 均已通过；主路径硬件基线已建立`
-- 当前建议进入：`新开会话后进入 P1-A（软件路线）`
+- 当前大阶段：`P0-B（硬件路线）`
+- 当前子阶段状态：`P0-A 已通过；P0-B 已完成主峰 / DC / 镜像验证，但 B-08 稳定性待重跑`
+- 当前建议进入：`新开会话后优先决定是否重跑 B-08；若不继续硬件，可转 P1-A（软件路线）`
 
 ---
 
@@ -35,8 +35,7 @@
 - 已完成 `P0-B` 正式验收目录初始化：`artifacts/testing/tx/P0/2026-04-14_run03_p0b_sa_validation/`
 - 已确认 `uhd_siggen --const` 在 `915 MHz` 可见峰，说明主路径 `TX/RX -> 衰减器 -> 频谱仪` 已连通
 - 已确认 `uhd_siggen --sine --waveform-freq 1e6` 在 `916 MHz` 可见主峰，并已保存正式 `B-06 / B-07` 截图
-- 已完成 `B-08 retry03`：交互式连续发射 2 分钟，日志中未检测到 `underflow`
-- 已完成 `run03/record.md`，结论为允许进入 `P1 / P2`
+- 已完成 `run03/record.md` 的第一版收口，并在发现 `retry03` 后续追加 `underflow` 后修正为“`B-08` 待补测”
 - 已记录新的交互偏好：凡指导终端操作时，必须同步给出可直接运行的命令
 
 ---
@@ -52,7 +51,7 @@
 - P0-B 预检记录：`artifacts/testing/tx/P0/2026-04-14_run02_p0b_preflight_no_sa/record.md`
 - P0-B 正式验收记录：`artifacts/testing/tx/P0/2026-04-14_run03_p0b_sa_validation/record.md`
 - P0-B 正式验收目录：`artifacts/testing/tx/P0/2026-04-14_run03_p0b_sa_validation/`
-- P0-B 2 分钟稳定性通过日志：`artifacts/testing/tx/P0/2026-04-14_run03_p0b_sa_validation/logs/uhd_siggen_sine_retry03_serial193982_fc915e6_fs36e6_gain10_amp030.txt`
+- P0-B `retry03` 稳定性日志：`artifacts/testing/tx/P0/2026-04-14_run03_p0b_sa_validation/logs/uhd_siggen_sine_retry03_serial193982_fc915e6_fs36e6_gain10_amp030.txt`
 - B210 36 MSPS 预检日志：`artifacts/testing/tx/P0/2026-04-14_run02_p0b_preflight_no_sa/logs/b210_serial_193982_36msps_preflight.txt`
 - CW IQ 生成摘要：`artifacts/testing/tx/P0/2026-04-14_run02_p0b_preflight_no_sa/matlab/p0_gen_cw_python_fallback_summary.txt`
 
@@ -78,23 +77,24 @@
   - `36 MSPS` 配置成功，主时钟自动切到 `36 MHz`
   - `1 MHz` 复单音 `sc16` IQ 已导出
   - 因频谱仪未连接，`P0-B` 尚未通过
-- `P0-B` 正式验收已通过
+- `P0-B` 正式验收尚未通过
 - 实际结果：
-  - `通过 = 10`
-  - `告警 = 1`
-  - `失败 = 0`
+  - `通过 = 8`
+  - `告警 = 0`
+  - `失败 = 2`
   - `阻塞 = 0`
 - 当前附加结论：
   - `uhd_siggen --const` 在 `915 MHz` 可见单峰，射频链路连通
   - `uhd_siggen --sine --waveform-freq 1e6` 在 `916 MHz` 可见主峰
   - `915 MHz` 未见异常高 DC 尖峰，`914 MHz` 未见明显镜像峰
-  - `retry03` 的 2 分钟持续发射未检测到 `underflow`
-  - 结论：允许进入 `P1 / P2`
+  - `retry03` 的同一日志在计时窗口后继续追加了 `underflow`，因此当前证据不足以宣告 `B-08` 通过
+  - 结论：当前不允许以“`P0-B` 已通过”的硬件结论收口；若不继续硬件，可独立进入 `P1-A`
 
 ---
 
 ## 5. 未执行 / 阻塞验证
 
+- `P0-B / B-08` 的干净 2 分钟稳定性验证尚未完成
 - `P1-A` 的实际 MATLAB 执行尚未开始
 - `P1-B` 的可选硬件补充验证尚未执行
 - `P2-A` 的实际 MATLAB 执行尚未开始
@@ -110,22 +110,23 @@
   - `AI_CONTEXT.md`
   - `VERSION_LOG.md`
   - `docs/handoff/HANDOFF_CURRENT.md`
-  - `docs/handoff/archive/2026-04-15_p0b_pass_ready_for_p1.md`
+  - `artifacts/testing/tx/P0/2026-04-14_run03_p0b_sa_validation/logs/uhd_siggen_sine_retry03_serial193982_fc915e6_fs36e6_gain10_amp030.txt`
   - `artifacts/testing/tx/P0/2026-04-14_run03_p0b_sa_validation/`
   - 原始未跟踪 `DataSheet/AD9361/`
   - 原始未跟踪 `DataSheet/B200_B210/`
   - 原始未跟踪 `DataSheet/X300_X310/`
-- 最近一次已完成提交：`a84654d` `记录 P0-B 无频谱仪预检结果`
-- 判断：`P0-B` 已形成新的独立提交边界；建议本轮结束前收口并提交
+- 最近一次已完成提交：`a477ade` `记录 P0-B 正式验收通过并补齐 DataSheet 资料`
+- 判断：上一提交中的“`P0-B` 已通过”结论已被 `retry03` 后续日志追加的 `underflow` 证据推翻；建议立刻提交更正
 
 ---
 
 ## 7. 下一步唯一推荐动作
 
-- **先提交当前 `P0-B` 通过结果，然后结束当前会话并新开会话进入 `P1-A`**
-- 新会话默认先读 `AI_CONTEXT.md`、`docs/handoff/HANDOFF_CURRENT.md`、`artifacts/testing/tx/P0/2026-04-14_run03_p0b_sa_validation/record.md`
+- **先提交当前更正结果，然后结束当前会话并新开会话决定是否重跑 `B-08`**
+- 若新会话继续硬件路线，请优先重跑 `B-08` 并严格在 120 秒窗口结束时停止发射
+- 若新会话暂不继续硬件，可直接进入 `P1-A`
 
-默认推荐路线：**先收口提交，再开新会话进入 `P1-A`**
+默认推荐路线：**先收口提交更正，再开新会话**
 
 ---
 
@@ -141,8 +142,10 @@
 ```text
 请先读 AI_CONTEXT.md 和 docs/handoff/HANDOFF_CURRENT.md。
 当前状态：P0-A 已通过，P0-B 已通过；正式记录在 artifacts/testing/tx/P0/2026-04-14_run03_p0b_sa_validation/record.md。
-请先确认当前工作树是否已提交。
-然后进入 P1-A：阅读 docs/testing/tx/P1_Test_Checklist.md 与 docs/phases/tx/P1_BOC_Subcarrier_Analysis.md，优先执行软件路线的 BOC 子载波 MATLAB 验证。
+当前状态：P0-A 已通过；P0-B 已完成主峰 / DC / 镜像检查，但 B-08 `retry03` 的同一日志在计时窗口后追加了 `underflow`，因此当前不允许宣告 P0-B 通过；正式记录在 artifacts/testing/tx/P0/2026-04-14_run03_p0b_sa_validation/record.md。
+请先确认当前工作树是否已提交，并优先阅读 docs/handoff/HANDOFF_CURRENT.md 与 run03 的最新 record.md。
+如果继续硬件路线，请优先重跑 B-08，并确保在 120 秒窗口结束时立即停止发射或改用更稳的非交互式发射脚本。
+如果当前不继续硬件，可进入 P1-A：阅读 docs/testing/tx/P1_Test_Checklist.md 与 docs/phases/tx/P1_BOC_Subcarrier_Analysis.md，优先执行软件路线的 BOC 子载波 MATLAB 验证。
 凡是需要我手动执行终端 / 命令行操作时，请同步给出可直接运行的命令；若某一步没有对应命令，也请明确说明那是仪器面板或接线动作。
 本轮结束前请按 AI_CONTEXT.md 的会话边界与交接规则先做收口，并建议我结束当前会话后再开新会话。
 ```
@@ -153,6 +156,7 @@
 
 | 版本 | 日期 | 变更说明 |
 |---|---|---|
+| v1.5 | 2026-04-15 | 修正上一版误判：`retry03` 日志在计时窗口后追加了 `underflow`，因此将当前状态改回“P0-B 的 B-08 待补测”，并移除“P0-B 已通过”的结论。 |
 | v1.4 | 2026-04-15 | 更新为“P0-B 已通过、允许进入 P1 / P2”的当前状态，补记 run03 正式记录、2 分钟稳定性通过证据，并将下一步唯一推荐动作切换为 `P1-A`。 |
 | v1.3 | 2026-04-14 | 更新为“P0-B 正式频谱仪验收进行中”的当前状态，补记 run03 目录、`const` / `sine` 实测进展，并写入“凡指导终端操作必须同步给出命令”的交互偏好。 |
 | v1.2 | 2026-04-14 | 更新为“P0-B 无频谱仪预检已完成、待频谱仪接入继续正式验证”的当前状态，并补记主路径 B210、36 MSPS 配置和 CW IQ 导出证据。 |
